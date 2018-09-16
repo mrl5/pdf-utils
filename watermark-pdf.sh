@@ -6,7 +6,7 @@
 #
 # $1: input file
 #
-# Example: 'sh split-pdf.sh /path/to/input.pdf'
+# Example: 'sh watermark-pdf.sh /path/to/input.pdf'
 #  creates input-watermark.pdf from input.pdf in current dir
 
 # stores directory of the script
