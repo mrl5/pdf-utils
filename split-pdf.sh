@@ -17,6 +17,10 @@ INDEX=1
 TMPNAME="temp-pdf-snapshot"
 TMPDIR="/tmp/temp-pdf-snapshots"
 
+# stores directory of the script
+# source: https://stackoverflow.com/a/246128
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd -P)"
+
 # get directory of /path/to/outputfile.pdf file
 OUTPUTDIR=${2%/*}
 
@@ -41,6 +45,6 @@ do
 done
 
 # merge all 'temp-pdf-snapshot' files into one output.pdf
-gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE="$2" -dBATCH $TMPDIR/$TMPNAME*.pdf
+sh $SCRIPT_DIR/merge-pdf.sh $2 $TMPDIR/$TMPNAME*.pdf
 
 rm -rf $TMPDIR
