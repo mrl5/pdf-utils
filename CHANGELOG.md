@@ -1,7 +1,9 @@
 # CHANGELOG
 All **notable** changes to this project will be documented in this file.
 
-## [v2.0-SNAPSHOT] (unreleased)
+## v2.0-SNAPSHOT
+- License changed to **MIT**
+- WIP
 
 ## [v1.1] - 16.09.2018
 - New feature:
