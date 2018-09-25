@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Copyright 2018 mrl5
 # Distributed under the terms of the GNU General Public License v3
 
-# Creates new pdf from many pdfs
+# Creates new pdf from multiple pdfs
 #
 # $1: output file
 # $2: input-1 file
@@ -19,6 +19,25 @@
 # Example 2: 'sh merge-pdf.sh /path/to/ouotput.pdf /path/to/input-*.pdf'
 #  creates output.pdf from files matching pattern input-*.pdf
 
-INPUT_GROUP=${@:2}
+arg_err_msg="Expected minimum 2 arguments. Please specify output file and input files."
 
-gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE="$1" -dBATCH $INPUT_GROUP
+# checks if enough arguments were provided
+if [ $# -lt 2 ]; then
+	echo "$arg_err_msg"
+	exit 1
+else
+	# stores args $2, $3, $4, ..., $n
+	INPUT_GROUP=${@:2}
+fi
+
+
+# merges multiple .pdf files into one using GhostScript
+merge() {
+	gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE="$1" -dBATCH $INPUT_GROUP
+}
+
+# real work starts here
+#check_output
+#check_inputs
+merge
+
