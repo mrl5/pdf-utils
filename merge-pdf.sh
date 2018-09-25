@@ -68,7 +68,7 @@ check_output() {
 # checks if input files exist
 check_inputs() {
 	for file in $INPUT_GROUP; do
-		if [ ! -z $file ]; then
+		if [ ! -f $file ]; then
 			echo "$file doesn't exist. Aborting."
 			exit 1
 		fi
