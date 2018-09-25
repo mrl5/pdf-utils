@@ -4,13 +4,13 @@
 
 # Creates new pdf from part of another pdf
 #
-# $1: input file
-# $2: output file
+# $1: output file
+# $2: input file
 # $3: first range
 # $4: second range
 # $n-2: nth range
 #
-# Example: 'sh split-pdf.sh /path/to/input.pdf /path/to/output.pdf 1-1 6-9 18-21'
+# Example: 'sh split-pdf.sh /path/to/output.pdf /path/to/input.pdf 1-1 6-9 18-21'
 #  creates output.pdf from input.pdf pages: 1, 6, 7, 8, 9, 18, 19, 20, 21
 
 # checks if enough arguments were provided
@@ -25,8 +25,8 @@ else
 	SCRIPT_DIR="$( cd "$( dirname "$0" )" >/dev/null && pwd -P)"
 	# get directory of /path/to/outputfile.pdf file
 	OUTPUTDIR=${2%/*}
-	OUTPUT_FILE="$2"
-	INPUT_FILE="$1"
+	OUTPUT_FILE="$1"
+	INPUT_FILE="$2"
 	PAGES="${@:3}"
 fi
 
