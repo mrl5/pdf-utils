@@ -65,6 +65,16 @@ check_output() {
 	fi
 }
 
+# checks if input files exist
+check_inputs() {
+	for file in $INPUT_GROUP; do
+		if [ ! -z $file ]; then
+			echo "$file doesn't exist. Aborting."
+			exit 1
+		fi
+	done
+}
+
 # merges multiple .pdf files into one using GhostScript
 merge() {
 	echo Creating $OUTPUT ...
@@ -73,15 +83,15 @@ merge() {
 	# checks if last command returned error
 	if [ $? -eq 0 ]; then
 		echo ""
-		echo Done. New PDF: \'$OUTPUT\'
+		echo "Done. New PDF: $OUTPUT"
 	else
 		echo ""
-		echo Something went wrong. \'$OUTPUT\' may be corrupted.
+		echo "Something went wrong. $OUTPUT may be corrupted."
 	fi
 }
 
 # main()
 check_output
-#check_inputs
+check_inputs
 merge
 
