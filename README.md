@@ -12,12 +12,12 @@ Tools to modify PDF files
 
 Creates output.pdf from files matching pattern input-\*.pdf
 
-`sh merge-pdf.sh /path/to/ouotput.pdf /path/to/input-1.pdf /path/to/input-2.pdf /path/to/input-n.pdf`
+`sh merge-pdf.sh /path/to/output.pdf /path/to/input-1.pdf /path/to/input-2.pdf /path/to/input-n.pdf`
 
 Creates output.pdf from input-1.pdf, input-2.pdf, input-n.pdf
 
 ### Split PDF
-`sh split-pdf.sh /path/to/input.pdf /path/to/output.pdf 1-1 6-9 18-21`
+`sh split-pdf.sh /path/to/output.pdf /path/to/input.pdf 1-1 6-9 18-21`
 
 Creates output.pdf from input.pdf pages: 1, 6, 7, 8, 9, 18, 19, 20, 21
 
