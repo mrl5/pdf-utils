@@ -30,10 +30,24 @@ else
 	INPUT_GROUP=${@:2}
 fi
 
+# checks if output file exists
+check_output() {
+	
+}
 
 # merges multiple .pdf files into one using GhostScript
 merge() {
+	echo Creating "$1" ...
+	echo ""
 	gs -dNOPAUSE -sDEVICE=pdfwrite -sOUTPUTFILE="$1" -dBATCH $INPUT_GROUP
+	# checks if last command returned error
+	if [ $? -eq 0 ]; then
+		echo ""
+		echo Done. New PDF: "$1"
+	else
+		echo ""
+		echo Something went wrong. "$1" may be corrupted.
+	fi
 }
 
 # real work starts here
